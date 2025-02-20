@@ -35,7 +35,7 @@ resource "aws_route_table_association" "public" {
 resource "aws_eip" "nat_gateway" {
   for_each = toset(data.aws_availability_zones.az.names)
 
-  vpc        = true
+  domain     = "vpc"
   depends_on = [aws_internet_gateway.main]
 }
 
